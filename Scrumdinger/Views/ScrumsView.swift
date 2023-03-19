@@ -14,7 +14,8 @@ struct ScrumsView: View {
 // Accepts a 'ViewBuilder' as its only 'parameter'. So, you can add 'rows' with the same syntax you’ve been using with other container views such as 'HStack and VStack'
 // List(scrums) { scrum in || List { ForEach(scrums, id:\.title)
 
-        List(scrums, id: \.title) { scrum in
+//        After the scruct confirms Identifiable and add the Initilize 'id' -> I can omit that: 'id: \.id'
+        List(scrums) { scrum in
             // Initialize a CardView in the closure for each element in the scrums array
             CardView(scrum: scrum)
                 .listRowBackground(scrum.theme.mainColor)
