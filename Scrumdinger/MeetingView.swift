@@ -11,7 +11,44 @@ import SwiftUI
 
 struct MeetingView: View {
     var body: some View {
-        ProgressView(value: 5, total: 15)  // display the percentage of time elapsed during the scrum
+        VStack {
+            ProgressView(value: 5, total: 15) // 1.
+            
+            HStack {
+                // These alignments override the default behavior, which is center alignment.
+                VStack(alignment: .leading) {
+                    Text("Seconds Elapsed")
+                        .font(.caption)
+                    
+                    Label("300", systemImage: "hourglass.bottomhalf.fill")
+                }
+                
+                Spacer()
+                
+                
+                VStack(alignment: .trailing) {
+                    Text("Seconds Remaining")
+                        .font(.caption)
+                    
+                    Label("600", systemImage: "hourglass.tophalf.fill")
+
+                }
+            }
+            
+            Circle()
+                .strokeBorder(lineWidth: 24)
+            
+// Add an HStack with a text view that displays “Speaker 1 of 3”
+            HStack {
+                Text("Speaker 1 of 3")
+                Spacer()
+                Button(action: {}) {
+                    Image(systemName: "forward.fill")
+                }
+
+            }
+        }
+        .padding()
     }
 }
 
@@ -20,3 +57,5 @@ struct MeetingView_Previews: PreviewProvider {
         MeetingView()
     }
 }
+
+//1. display the percentage of time elapsed during the scrum
