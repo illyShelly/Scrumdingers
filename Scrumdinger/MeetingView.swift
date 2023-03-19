@@ -19,7 +19,6 @@ struct MeetingView: View {
                 VStack(alignment: .leading) {
                     Text("Seconds Elapsed")
                         .font(.caption)
-                    
                     Label("300", systemImage: "hourglass.bottomhalf.fill")
                 }
                 
@@ -29,11 +28,15 @@ struct MeetingView: View {
                 VStack(alignment: .trailing) {
                     Text("Seconds Remaining")
                         .font(.caption)
-                    
                     Label("600", systemImage: "hourglass.tophalf.fill")
 
                 }
             }
+            // Ignore the inferred accessibility labels and values for the child views. By default reads system Views "hourglass.fill"
+            // rather than force VoiceOver users to listen to the output of both labels, create only one
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel("Time remaining")
+            .accessibilityValue("10 minutes")
             
             Circle()
                 .strokeBorder(lineWidth: 24)
@@ -45,8 +48,9 @@ struct MeetingView: View {
                 Button(action: {}) {
                     Image(systemName: "forward.fill")
                 }
-
             }
+            .accessibilityLabel("Next speaker")
+
         }
         .padding()
     }
