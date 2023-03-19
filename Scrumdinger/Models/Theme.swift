@@ -35,10 +35,8 @@ enum Theme: String {
 //    The accent color provides a high-contrast complement to the theme’s main color, ensuring your views remain accessible.
     var accentColor: Color {
         switch self {
-        case .bubblegum, .buttercup, .lavender, .orange, .periwinkle, .poppy, .seafoam, .sky, .tan, .teal, .yellow:
-            return .black
-        case .indigo, .magenta, .navy, .oxblood, .purple:
-            return .white
+        case .bubblegum, .buttercup, .lavender, .orange, .periwinkle, .poppy, .seafoam, .sky, .tan, .teal, .yellow: return .black
+        case .indigo, .magenta, .navy, .oxblood, .purple: return .white
         }
     }
     

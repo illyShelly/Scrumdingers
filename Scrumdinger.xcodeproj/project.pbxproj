@@ -13,6 +13,7 @@
 		37ED9A1F29C4FA4200BD79CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37ED9A1E29C4FA4200BD79CA /* Preview Assets.xcassets */; };
 		37ED9A2729C76A5E00BD79CA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ED9A2629C76A5E00BD79CA /* Theme.swift */; };
 		37ED9A2929C788B200BD79CA /* DailyScrum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ED9A2829C788B200BD79CA /* DailyScrum.swift */; };
+		37ED9A2C29C78A7300BD79CA /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ED9A2B29C78A7300BD79CA /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		37ED9A1E29C4FA4200BD79CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		37ED9A2629C76A5E00BD79CA /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		37ED9A2829C788B200BD79CA /* DailyScrum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyScrum.swift; sourceTree = "<group>"; };
+		37ED9A2B29C78A7300BD79CA /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +57,9 @@
 		37ED9A1629C4FA4200BD79CA /* Scrumdinger */ = {
 			isa = PBXGroup;
 			children = (
-				37ED9A2529C76A4700BD79CA /* Models */,
 				37ED9A1729C4FA4200BD79CA /* ScrumdingerApp.swift */,
+				37ED9A2529C76A4700BD79CA /* Models */,
+				37ED9A2A29C78A6B00BD79CA /* Views */,
 				37ED9A1929C4FA4200BD79CA /* MeetingView.swift */,
 				37ED9A1B29C4FA4200BD79CA /* Assets.xcassets */,
 				37ED9A1D29C4FA4200BD79CA /* Preview Content */,
@@ -79,6 +82,14 @@
 				37ED9A2829C788B200BD79CA /* DailyScrum.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		37ED9A2A29C78A6B00BD79CA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				37ED9A2B29C78A7300BD79CA /* CardView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +166,7 @@
 				37ED9A2729C76A5E00BD79CA /* Theme.swift in Sources */,
 				37ED9A1A29C4FA4200BD79CA /* MeetingView.swift in Sources */,
 				37ED9A1829C4FA4200BD79CA /* ScrumdingerApp.swift in Sources */,
+				37ED9A2C29C78A7300BD79CA /* CardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
