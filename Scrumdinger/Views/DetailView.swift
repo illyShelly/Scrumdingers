@@ -44,11 +44,13 @@ struct DetailView: View {
             
 //            2nd Section - Atendees
             Section(header: Text("Atendees")) {
-            // cannot use Identifiable for String -> made Struct of Attendees
-//                ForEach(scrum.attendees, id: \.id) { attendee in
-//                    Text(attendee)
-//                }
+                // cannot use Identifiable for String -> made Struct of Attendees
+                // now array of instances of Attendee
+                ForEach(scrum.attendees, id: \.id) { attendee in
+                    Label("\(attendee.name)", systemImage: "person")
+                }
             }
+            
         }
         
     }
