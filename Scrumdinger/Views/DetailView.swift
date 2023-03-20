@@ -16,11 +16,16 @@ struct DetailView: View {
             // create visual distinctions within your list. They help you to chunk content and establish groups in the list
             Section(header: Text("Meeting Info")) {
                 
-                Label("Start Meeting", systemImage: "timer") // later it will navigate users to the meeting view.
-                    .font(.headline)
-                    .foregroundColor(.accentColor) // colour of interactive element
-                    .accessibilityLabel("Click to start Meeting")
-                
+                // Redirect into Meeting timer screen
+                NavigationLink {
+                    MeetingView() // as destination closure
+                } label: {
+                    Label("Start Meeting", systemImage: "timer") // later it will navigate users to the meeting view.
+                        .font(.headline)
+                        .foregroundColor(.accentColor) // colour of interactive element
+                        .accessibilityLabel("Click to start Meeting")
+                }
+
                 // 3. Create an HStack, and add a Label with the clock icon for the meeting length.
                 HStack {
                     Label("Length", systemImage: "clock")
@@ -52,6 +57,7 @@ struct DetailView: View {
             }
             
         }
+        .navigationTitle(scrum.title)
         
     }
 }
