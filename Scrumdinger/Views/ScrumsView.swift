@@ -17,8 +17,24 @@ struct ScrumsView: View {
 //        After the scruct confirms Identifiable and add the Initilize 'id' -> I can omit that: 'id: \.id'
         List(scrums) { scrum in
             // Initialize a CardView in the closure for each element in the scrums array
-            CardView(scrum: scrum)
-                .listRowBackground(scrum.theme.mainColor)
+            
+            // The destination presents a 'single view' in the navigation hierarchy when a user interacts with the element. Each 'row' pushes to an 'individual destination'. SwiftUI automatically adds the 'Back button' in the detail view and fills in the title of the previous screen.
+            
+            NavigationLink(destination: Text(scrum.title)) {
+                CardView(scrum: scrum)
+            }
+            .listRowBackground(scrum.theme.mainColor)
+
+        }
+        .navigationTitle("Daily Scrums")
+        
+        // Add a toolbar, and 'add a Button' toolbar item that displays the 'plus icon'. Pass an empty action to the button for now.
+        .toolbar {
+            Button(action: {}) {
+                Image(systemName: "plus")
+            }
+            .accessibilityLabel("Add New Scrum")
+
         }
     }
 }
@@ -27,7 +43,11 @@ struct ScrumsView_Previews: PreviewProvider {
     static var scrumsArr: [DailyScrum] = DailyScrum.sampleData
     
     static var previews: some View {
-        ScrumsView(scrums: scrumsArr)
+//        Adding the NavigationView displays navigation elements, like title and bar buttons, on the canvas
+        NavigationView {
+            ScrumsView(scrums: scrumsArr)
+                .navigationTitle("Scrums")
+        }
     }
 }
 
