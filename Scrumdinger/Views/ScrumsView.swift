@@ -20,7 +20,7 @@ struct ScrumsView: View {
             
             // The destination presents a 'single view' in the navigation hierarchy when a user interacts with the element. Each 'row' pushes to an 'individual destination'. SwiftUI automatically adds the 'Back button' in the detail view and fills in the title of the previous screen.
             
-            NavigationLink(destination: Text(scrum.title)) {
+            NavigationLink(destination: DetailView(scrum: scrum)) {
                 CardView(scrum: scrum)
             }
             .listRowBackground(scrum.theme.mainColor)
