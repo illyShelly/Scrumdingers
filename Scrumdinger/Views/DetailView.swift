@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+//About @State and @BindingA
+//@Binding doesn’t store the data directly. Instead, it creates a two-way connection between an existing source of truth and a view that displays and updates that data. This connection ensures that multiple views associated with a piece of data are in sync.
 
 struct DetailView: View {
     let scrum: DailyScrum

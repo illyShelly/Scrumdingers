@@ -46,6 +46,23 @@ extension DailyScrum {
             self.name = name
         }
     }
+    
+//    Users adjust a meeting’s 'length' with a 'Slider view'. Sliders work with Double, you define lengthInMinutes as a Double.
+//    By making 'Data a nested type', you keep DailyScrum.Data distinct from the Data structure defined in the Foundation framework.
+//    Assign default values to all properties.
+    
+//    If all properties have default values, the compiler creates an initializer that takes no arguments. With this initializer, you can create a new instance by calling Data()
+    struct Data {
+        var title: String = ""
+        var attendees: [Attendee] = []
+        var lengthInMinutes: Double = 5.0
+        var theme: Theme = .seafoam
+    }
+    
+//    Add a' computed data property' that returns Data with the DailyScrum property values.
+    var data: Data {
+        Data(title: title, attendees: attendees, lengthInMinutes: Double(lengthInMinutes), theme: theme)
+    }
 }
 
 // extension that provides some sample data.
