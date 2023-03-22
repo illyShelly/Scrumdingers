@@ -27,11 +27,13 @@ struct DetailEditView: View {
                         // label input
                         Text("Length of time")
                     }
+                    .accessibilityValue("\(Int(data.lengthInMinutes)) minutes")
                 }
                 Spacer()
                 // Display length of the meeting String(format: "%.2f", myDouble)
                 // or simply into Int(data.lengthInMinutes)
                 Text("\(String(format: "%.0f", data.lengthInMinutes)) minutes")
+                    .accessibilityHidden(true) // hide text from VoiceOver - in Slider
             }
             
             Section(header: Text("Attendees")) {
@@ -58,6 +60,7 @@ struct DetailEditView: View {
                         }
                     }) {
                         Image(systemName: "plus.circle.fill") // Image as a label
+                            .accessibilityLabel("Add Attendee") // label for Image
                     }
                     // modifier prevents users from mistakenly saving an attendee without a name.
                     .disabled(newAttendeeName.isEmpty)
