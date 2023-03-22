@@ -12,6 +12,8 @@ import SwiftUI
 struct DetailView: View {
     let scrum: DailyScrum
     
+    @State private var isPresentingEditView: Bool = false
+    
     var body: some View {
         // to display static subviews in a single column with rows.
         List {
@@ -60,7 +62,34 @@ struct DetailView: View {
             
         }
         .navigationTitle(scrum.title)
-        
+        .toolbar {
+            Button("Edit") {
+                isPresentingEditView = true
+            }
+        }
+        .sheet(isPresented: $isPresentingEditView) {
+            // showup modal when 'edit'
+            NavigationView {
+                DetailEditView()
+                
+                    .navigationTitle(scrum.title)
+                    // toolbar button - canceling changes to the scrum details. Dismiss DetailEditView in the Cancel button action.
+                    
+                    .toolbar {
+                        // cancalation action for the modal interface
+                        ToolbarItem(placement: .cancellationAction) {
+                           Button("Cancel") {
+                               isPresentingEditView = false
+                           }
+                       }
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button("Done") {
+                                isPresentingEditView = false
+                            }
+                        }
+                    }
+            }
+        }
     }
 }
 
