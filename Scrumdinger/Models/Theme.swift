@@ -13,7 +13,10 @@ import SwiftUI
 
 // Swift automatically creates 'strings' from each case name in Theme.
 //In AssetsCatalog Themes folder -> RGBA values for each color
-enum Theme: String {
+
+//The picker will display all available themes. You’ll make Theme conform to 'CaseIterable' so that you can easily access all the enumeration’s cases - in ThemePickerView
+
+enum Theme: String, CaseIterable, Identifiable {
     case bubblegum
     case buttercup
     case indigo
@@ -49,5 +52,10 @@ enum Theme: String {
 //    capitalize the Theme enumeration cases for UI
     var name: String {
         rawValue.capitalized
+    }
+    
+//    add conformance to 'CaseIterable' and 'Identifiable', using the 'theme name' as its 'id'
+    var id: String {
+        name // name is unique so it can be used as identifier
     }
 }

@@ -59,7 +59,7 @@ extension DailyScrum {
         var theme: Theme = .seafoam
     }
     
-//    Add a' computed data property' that returns Data with the DailyScrum property values.
+//    Add a'computed data property' that returns Data with the DailyScrum property values.
     var data: Data {
         Data(title: title, attendees: attendees, lengthInMinutes: Double(lengthInMinutes), theme: theme)
     }

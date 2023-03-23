@@ -18,6 +18,8 @@
 		37ED9A3029C79AD600BD79CA /* ScrumsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ED9A2F29C79AD600BD79CA /* ScrumsView.swift */; };
 		37ED9A3229C8703100BD79CA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ED9A3129C8703100BD79CA /* DetailView.swift */; };
 		37ED9A3429CA3CC800BD79CA /* DetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ED9A3329CA3CC800BD79CA /* DetailEditView.swift */; };
+		37ED9A8A29CB9BD600BD79CA /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ED9A8929CB9BD600BD79CA /* ThemeView.swift */; };
+		37ED9A8C29CCCC7300BD79CA /* ThemePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ED9A8B29CCCC7300BD79CA /* ThemePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		37ED9A2F29C79AD600BD79CA /* ScrumsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrumsView.swift; sourceTree = "<group>"; };
 		37ED9A3129C8703100BD79CA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		37ED9A3329CA3CC800BD79CA /* DetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEditView.swift; sourceTree = "<group>"; };
+		37ED9A8929CB9BD600BD79CA /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
+		37ED9A8B29CCCC7300BD79CA /* ThemePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +101,11 @@
 			children = (
 				37ED9A2F29C79AD600BD79CA /* ScrumsView.swift */,
 				37ED9A3129C8703100BD79CA /* DetailView.swift */,
+				37ED9A3329CA3CC800BD79CA /* DetailEditView.swift */,
+				37ED9A8B29CCCC7300BD79CA /* ThemePicker.swift */,
+				37ED9A8929CB9BD600BD79CA /* ThemeView.swift */,
 				37ED9A1929C4FA4200BD79CA /* MeetingView.swift */,
 				37ED9A2B29C78A7300BD79CA /* CardView.swift */,
-				37ED9A3329CA3CC800BD79CA /* DetailEditView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,6 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37ED9A8C29CCCC7300BD79CA /* ThemePicker.swift in Sources */,
 				37ED9A2929C788B200BD79CA /* DailyScrum.swift in Sources */,
 				37ED9A3229C8703100BD79CA /* DetailView.swift in Sources */,
 				37ED9A3429CA3CC800BD79CA /* DetailEditView.swift in Sources */,
@@ -182,6 +189,7 @@
 				37ED9A3029C79AD600BD79CA /* ScrumsView.swift in Sources */,
 				37ED9A1A29C4FA4200BD79CA /* MeetingView.swift in Sources */,
 				37ED9A1829C4FA4200BD79CA /* ScrumdingerApp.swift in Sources */,
+				37ED9A8A29CB9BD600BD79CA /* ThemeView.swift in Sources */,
 				37ED9A2C29C78A7300BD79CA /* CardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

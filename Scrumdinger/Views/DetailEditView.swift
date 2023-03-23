@@ -9,7 +9,9 @@ import SwiftUI
 
 struct DetailEditView: View {
 // As private so they can be accessed only within the view in which you define them
-    @State private var data = DailyScrum.Data()
+    // 2. change to Binding from State - data is now an initialization parameter, so you need to remove the private attribute and DailyScrum.Data initialization
+    // @Binding var data: DailyScrum.Data
+     @State private var data = DailyScrum.Data() // instance of data as extention
     @State private var newAttendeeName = ""
     
     var body: some View {
@@ -34,6 +36,11 @@ struct DetailEditView: View {
                 // or simply into Int(data.lengthInMinutes)
                 Text("\(String(format: "%.0f", data.lengthInMinutes)) minutes")
                     .accessibilityHidden(true) // hide text from VoiceOver - in Slider
+                
+// Add a theme picker and pass it a binding to a theme.
+// The picker passes changes to the theme 'selection' back to the 'data.theme' property in the edit view.
+                ThemePicker(selection: $data.theme)
+                
             }
             
             Section(header: Text("Attendees")) {
