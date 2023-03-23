@@ -10,8 +10,8 @@ import SwiftUI
 struct DetailEditView: View {
 // As private so they can be accessed only within the view in which you define them
     // 2. change to Binding from State - data is now an initialization parameter, so you need to remove the private attribute and DailyScrum.Data initialization
-    // @Binding var data: DailyScrum.Data
-     @State private var data = DailyScrum.Data() // instance of data as extention
+     @Binding var data: DailyScrum.Data
+     // @State private var data = DailyScrum.Data() // instance of data as extention
     @State private var newAttendeeName = ""
     
     var body: some View {
@@ -80,6 +80,6 @@ struct DetailEditView: View {
 
 struct DetailEditView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailEditView()
+        DetailEditView(data: .constant(DailyScrum.sampleData[0].data))
     }
 }

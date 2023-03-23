@@ -10,7 +10,11 @@ import SwiftUI
 //@Binding doesn’t store the data directly. Instead, it creates a two-way connection between an existing source of truth and a view that displays and updates that data. This connection ensures that multiple views associated with a piece of data are in sync.
 
 struct DetailView: View {
-    let scrum: DailyScrum
+    @Binding var scrum: DailyScrum // for update method change to 'var'
+        
+//    The empty initializer creates an instance with default values for its properties. You’ll update these values to match the selected scrum when the user taps the Edit button.
+    @State private var data = DailyScrum.Data() // moved source of truth
+//    Using a binding ensures that DetailView renders again when the user’s interaction modifies scrum.
     
     @State private var isPresentingEditView: Bool = false
     
@@ -65,12 +69,14 @@ struct DetailView: View {
         .toolbar {
             Button("Edit") {
                 isPresentingEditView = true
+                data = scrum.data // set data to scrum.data
             }
         }
         .sheet(isPresented: $isPresentingEditView) {
             // showup modal when 'edit'
             NavigationView {
-                DetailEditView()
+                
+                DetailEditView(data: $data) // update to bind data from edit view to detail view
                 
                     .navigationTitle(scrum.title)
                     // toolbar button - canceling changes to the scrum details. Dismiss DetailEditView in the Cancel button action.
@@ -82,9 +88,12 @@ struct DetailView: View {
                                isPresentingEditView = false
                            }
                        }
+                        
                         ToolbarItem(placement: .confirmationAction) {
                             Button("Done") {
                                 isPresentingEditView = false
+                                // update data when click on Done
+                                scrum.update(from: data)
                             }
                         }
                     }
@@ -96,7 +105,9 @@ struct DetailView: View {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            DetailView(scrum: DailyScrum.sampleData[0])
+// pass a constant binding to the DetailView initializer in DetailView_Previews.
+//            DetailView(scrum: DailyScrum.sampleData[0])
+            DetailView(scrum: .constant(DailyScrum.sampleData[0]))
         }
     }
 }
