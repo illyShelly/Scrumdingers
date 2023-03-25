@@ -13,27 +13,19 @@ struct MeetingView: View {
     @Binding var scrum: DailyScrum
     @StateObject var scrumTimer: ScrumTimer = ScrumTimer() // property of timer
     // view owns the source of truth for the object. @StateObject ties the ScrumTimer, which is an ObservableObject, to the MeetingView life cycle
-    
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 16.0)
                 .fill(scrum.theme.mainColor)
-            
+
             VStack {
                 MeetingHeaderView(secondsElapsed: scrumTimer.secondsElapsed, secondsRemaining: scrumTimer.secondsRemaining, theme: scrum.theme)
-                
+
                 Circle()
-                    .strokeBorder(lineWidth: 24)
-                
-                // Add an HStack with a text view that displays “Speaker 1 of 3”
-                HStack {
-                    Text("Speaker 1 of 3")
-                    Spacer()
-                    Button(action: {}) {
-                        Image(systemName: "forward.fill")
-                    }
-                    .accessibilityLabel("Next speaker")
-                }
+                    .strokeBorder(lineWidth: 24, antialiased: true)
+
+                MeetingFooterView(speakers: scrumTimer.speakers, skipAction: scrumTimer.skipSpeaker)
             }
             //            .padding()
         }
@@ -41,7 +33,7 @@ struct MeetingView: View {
         .foregroundColor(scrum.theme.accentColor)
         // The timer resets each time an instance of MeetingView shows on screen, indicating that a meeting should begin.
         .onAppear {
-            scrumTimer.reset(lengthInMinutes: scrumTimer.lengthInMinutes, attendees: scrum.attendees)
+            scrumTimer.reset(lengthInMinutes: scrum.lengthInMinutes, attendees: scrum.attendees)
             scrumTimer.startScrum()
             // start a new scrum timer after the timer resets.
         }
@@ -59,4 +51,3 @@ struct MeetingView_Previews: PreviewProvider {
         MeetingView(scrum: .constant(DailyScrum.sampleData[0]))
     }
 }
-

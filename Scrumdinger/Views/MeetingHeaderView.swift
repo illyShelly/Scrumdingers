@@ -23,7 +23,7 @@ struct MeetingHeaderView: View {
     }
 //    computed property that calculates the minutesRemaining using the secondsRemaining value.
     private var minutesRemaining: Int {
-           secondsRemaining / 60
+       secondsRemaining / 60
     }
     
     var body: some View {
