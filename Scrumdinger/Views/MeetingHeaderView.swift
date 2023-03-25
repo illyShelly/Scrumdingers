@@ -28,7 +28,9 @@ struct MeetingHeaderView: View {
     
     var body: some View {
         VStack {
+//            custom style to draw a background view in either black or white around the ProgressView to give the view more visual emphasis.
             ProgressView(value: progress)
+                .progressViewStyle(ScrumProgressViewStyle(theme: theme))
             
             HStack {
                 // These alignments override the default behavior, which is center alignment.
@@ -45,6 +47,8 @@ struct MeetingHeaderView: View {
                     Text("Seconds Remaining")
                         .font(.caption)
                     Label("\(secondsRemaining)", systemImage: "hourglass.tophalf.fill")
+                        .labelStyle(.trailingIcon)
+                    // The default Label style shows the Image and Text in the wrong order for the design. The custom TrailingIconLabelStyle reverses the order of the two views.
                     
                 }
             }
@@ -54,6 +58,8 @@ struct MeetingHeaderView: View {
         .accessibilityElement(children: .ignore)
         .accessibilityLabel("Time remaining")
         .accessibilityValue("\(minutesRemaining) minutes")
+        .padding([.top, .horizontal])
+
     }
 }
 
