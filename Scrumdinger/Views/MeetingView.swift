@@ -10,56 +10,41 @@ import SwiftUI
 //1st 'structure' conforms to the 'View protocol', which has a single requirement: a 'body' property that returns a View. In the body property, you describe the content, layout, and behavior of the view
 
 struct MeetingView: View {
+    @Binding var scrum: DailyScrum
+    
     var body: some View {
-        VStack {
-            ProgressView(value: 5, total: 15) // 1.
+        ZStack {
+            RoundedRectangle(cornerRadius: 16.0)
+                .fill(scrum.theme.mainColor)
             
-            HStack {
-                // These alignments override the default behavior, which is center alignment.
-                VStack(alignment: .leading) {
-                    Text("Seconds Elapsed")
-                        .font(.caption)
-                    Label("300", systemImage: "hourglass.bottomhalf.fill")
-                }
+            VStack {
+//                MeetingHeaderView(secondsElapsed: <#Int#>, secondsRemaining: <#Int#>)
                 
-                Spacer()
+                Circle()
+                    .strokeBorder(lineWidth: 24)
                 
-                
-                VStack(alignment: .trailing) {
-                    Text("Seconds Remaining")
-                        .font(.caption)
-                    Label("600", systemImage: "hourglass.tophalf.fill")
-
-                }
-            }
-            // Ignore the inferred accessibility labels and values for the child views. By default reads system Views "hourglass.fill"
-            // rather than force VoiceOver users to listen to the output of both labels, create only one
-            .accessibilityElement(children: .ignore)
-            .accessibilityLabel("Time remaining")
-            .accessibilityValue("10 minutes")
-            
-            Circle()
-                .strokeBorder(lineWidth: 24)
-            
-// Add an HStack with a text view that displays “Speaker 1 of 3”
-            HStack {
-                Text("Speaker 1 of 3")
-                Spacer()
-                Button(action: {}) {
-                    Image(systemName: "forward.fill")
+                // Add an HStack with a text view that displays “Speaker 1 of 3”
+                HStack {
+                    Text("Speaker 1 of 3")
+                    Spacer()
+                    Button(action: {}) {
+                        Image(systemName: "forward.fill")
+                    }
+                    .accessibilityLabel("Next speaker")
                 }
             }
-            .accessibilityLabel("Next speaker")
-
+            //            .padding()
         }
         .padding()
+        .foregroundColor(scrum.theme.accentColor)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 struct MeetingView_Previews: PreviewProvider {
     static var previews: some View {
-        MeetingView()
+//        pass a constant scrum binding in the MeetingView() initializer.
+        MeetingView(scrum: .constant(DailyScrum.sampleData[0]))
     }
 }
 
-//1. display the percentage of time elapsed during the scrum

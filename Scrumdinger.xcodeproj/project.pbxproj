@@ -20,6 +20,7 @@
 		37ED9A3429CA3CC800BD79CA /* DetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ED9A3329CA3CC800BD79CA /* DetailEditView.swift */; };
 		37ED9A8A29CB9BD600BD79CA /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ED9A8929CB9BD600BD79CA /* ThemeView.swift */; };
 		37ED9A8C29CCCC7300BD79CA /* ThemePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ED9A8B29CCCC7300BD79CA /* ThemePicker.swift */; };
+		37ED9A8E29CF57F800BD79CA /* MeetingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ED9A8D29CF57F800BD79CA /* MeetingHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		37ED9A3329CA3CC800BD79CA /* DetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEditView.swift; sourceTree = "<group>"; };
 		37ED9A8929CB9BD600BD79CA /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 		37ED9A8B29CCCC7300BD79CA /* ThemePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePicker.swift; sourceTree = "<group>"; };
+		37ED9A8D29CF57F800BD79CA /* MeetingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				37ED9A8B29CCCC7300BD79CA /* ThemePicker.swift */,
 				37ED9A8929CB9BD600BD79CA /* ThemeView.swift */,
 				37ED9A1929C4FA4200BD79CA /* MeetingView.swift */,
+				37ED9A8D29CF57F800BD79CA /* MeetingHeaderView.swift */,
 				37ED9A2B29C78A7300BD79CA /* CardView.swift */,
 			);
 			path = Views;
@@ -183,6 +186,7 @@
 				37ED9A8C29CCCC7300BD79CA /* ThemePicker.swift in Sources */,
 				37ED9A2929C788B200BD79CA /* DailyScrum.swift in Sources */,
 				37ED9A3229C8703100BD79CA /* DetailView.swift in Sources */,
+				37ED9A8E29CF57F800BD79CA /* MeetingHeaderView.swift in Sources */,
 				37ED9A3429CA3CC800BD79CA /* DetailEditView.swift in Sources */,
 				37ED9A2E29C7933100BD79CA /* TrailingIconLabelStyle.swift in Sources */,
 				37ED9A2729C76A5E00BD79CA /* Theme.swift in Sources */,

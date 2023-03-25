@@ -26,7 +26,7 @@ struct DetailView: View {
                 
                 // Redirect into Meeting timer screen
                 NavigationLink {
-                    MeetingView() // as destination closure
+                    MeetingView(scrum: $scrum) // as destination closure
                 } label: {
                     Label("Start Meeting", systemImage: "timer") // later it will navigate users to the meeting view.
                         .font(.headline)
