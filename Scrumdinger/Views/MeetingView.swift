@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 //1st 'structure' conforms to the 'View protocol', which has a single requirement: a 'body' property that returns a View. In the body property, you describe the content, layout, and behavior of the view
 
@@ -13,7 +14,9 @@ struct MeetingView: View {
     @Binding var scrum: DailyScrum
     @StateObject var scrumTimer: ScrumTimer = ScrumTimer() // property of timer
     // view owns the source of truth for the object. @StateObject ties the ScrumTimer, which is an ObservableObject, to the MeetingView life cycle
-
+    // AVPlayer+Ding.swift file in the starter project defines the sharedDingPlayer object, which plays the ding.wav resource.
+    private var player: AVPlayer { AVPlayer.sharedDingPlayer }
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 16.0)
@@ -34,6 +37,11 @@ struct MeetingView: View {
         // The timer resets each time an instance of MeetingView shows on screen, indicating that a meeting should begin.
         .onAppear {
             scrumTimer.reset(lengthInMinutes: scrum.lengthInMinutes, attendees: scrum.attendees)
+            // when a speaker’s time expires
+            scrumTimer.speakerChangedAction = {
+                player.seek(to: .zero)  // Seeking to time .zero ensures the audio file always plays from the beginning
+                player.play()
+            }
             scrumTimer.startScrum()
             // start a new scrum timer after the timer resets.
         }
