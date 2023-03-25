@@ -11,6 +11,8 @@ import SwiftUI
 
 struct MeetingView: View {
     @Binding var scrum: DailyScrum
+    @StateObject var scrumTimer: ScrumTimer = ScrumTimer() // property of timer
+    // view owns the source of truth for the object. @StateObject ties the ScrumTimer, which is an ObservableObject, to the MeetingView life cycle
     
     var body: some View {
         ZStack {
@@ -18,7 +20,7 @@ struct MeetingView: View {
                 .fill(scrum.theme.mainColor)
             
             VStack {
-//                MeetingHeaderView(secondsElapsed: <#Int#>, secondsRemaining: <#Int#>)
+                MeetingHeaderView(secondsElapsed: scrumTimer.secondsElapsed, secondsRemaining: scrumTimer.secondsRemaining, theme: scrum.theme)
                 
                 Circle()
                     .strokeBorder(lineWidth: 24)
